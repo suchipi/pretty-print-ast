@@ -1,0 +1,47 @@
+{
+  "name": "pretty-print-ast",
+  "version": "1.0.0",
+  "description": "Formats ASTs as nice readable strings, with colors",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "jest",
+    "build": "tsc && cp dist/index.d.ts api/ && node sandbox.js"
+  },
+  "keywords": [
+    "ast",
+    "print",
+    "pretty",
+    "printf",
+    "sprintf",
+    "format"
+  ],
+  "author": "Lily Scott <me@suchipi.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/suchipi/pretty-print-ast.git"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.5",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-typescript": "^7.16.7",
+    "@types/jest": "^27.4.1",
+    "@types/node": "^17.0.21",
+    "babel-jest": "^27.5.1",
+    "equivalent-exchange": "^1.1.0",
+    "jest": "^27.5.1",
+    "jest-snapshot-serializer-raw": "^1.2.0",
+    "prettier": "^2.5.1",
+    "typescript": "^4.5.5"
+  },
+  "dependencies": {
+    "@suchipi/traverse": "^2.0.0",
+    "kleur": "^4.1.4"
+  },
+  "jest": {
+    "snapshotSerializers": [
+      "jest-snapshot-serializer-raw/always"
+    ]
+  }
+}
