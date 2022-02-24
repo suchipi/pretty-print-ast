@@ -1,12 +1,12 @@
 {
   "name": "pretty-print-ast",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Formats ASTs as nice readable strings, with colors",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "test": "jest",
-    "build": "tsc && cp dist/index.d.ts api/ && node sandbox.js"
+    "build": "tsc && cp dist/index.d.ts api/ && npm run test && node sandbox.js"
   },
   "keywords": [
     "ast",
