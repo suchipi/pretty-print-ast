@@ -10,7 +10,7 @@ import { formatAst } from "pretty-print-ast";
 
 const ast = /* get an AST from whatever */
 
-  console.log(formatAst(ast));
+console.log(formatAst(ast));
 ```
 
 Outputs something like:
