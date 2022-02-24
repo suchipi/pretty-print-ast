@@ -1,39 +1,25 @@
-# equivalent-exchange
+# pretty-print-ast
 
-Transmute one JavaScript string into another by way of mutating its AST. Powered by [babel](https://babeljs.io/) and [recast](https://www.npmjs.com/package/recast).
-
-## Features
-
-- Can parse code using modern ES20XX syntax, as well as either TypeScript or Flow syntax.
-- Maintains the source formatting of the original source, where possible; only modified parts of the code will be touched.
-- Can generate a source map that maps your input file into your transformed output.
+> Formats ASTs as nice readable strings, with colors
 
 ## Usage Example
 
+<!-- prettier-ignore -->
 ```ts
-import { transmute, traverse, types } from "equivalent-exchange";
+import { formatAst } from "pretty-print-ast";
 
-const someJs = "console.log('hi!');";
+const ast = /* get an AST from whatever */
 
-const result = transmute(someJs, (ast) => {
-  traverse(ast, {
-    StringLiteral(path) {
-      const { node } = path;
-      if (node.value === "hi!") {
-        path.replaceWith(types.stringLiteral("goodbye!"));
-      }
-    },
-  });
-});
-
-console.log(result.code); // console.log("goodbye!");
+  console.log(formatAst(ast));
 ```
 
-Note that you don't have to use the provided `traverse` or `types`; you can mutate the ast using whatever traversal method you prefer.
+Outputs something like:
+
+![picture of script output](https://user-images.githubusercontent.com/1341513/155487536-8eab1863-e182-45d6-aae3-2e6e0e2d292a.png)
 
 ## API Documentation
 
-Please see [api/index.d.ts](https://github.com/suchipi/equivalent-exchange/blob/main/api/index.d.ts) for API documentation. There are lots of comments.
+Please see [api/index.d.ts](https://github.com/suchipi/pretty-print-ast/blob/main/api/index.d.ts) for API documentation.
 
 ## License
 
